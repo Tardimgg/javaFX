@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<GridPane alignment="CENTER" snapToPixel="false" styleClass="background" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+    <children>
+      <ScrollPane styleClass="background">
+         <content>
+                <Pane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="600.0" prefWidth="800.0" snapToPixel="false" styleClass="background">
+                    <children>
+                        <TextField fx:id="key" layoutX="284.0" layoutY="266.0" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" snapToPixel="false" promptText="16 or 24 or 32 bytes"/>
+                        <TextArea fx:id="outputText" editable="false" layoutX="126.0" layoutY="367.0" snapToPixel="false" />
+                        <Label layoutX="221.0" layoutY="271.0" snapToPixel="false" text="Key" />
+                        <Button layoutX="240.0" layoutY="312.0" mnemonicParsing="false" onAction="#clickEncryption" snapToPixel="false" text="Encryption" />
+                        <TextArea fx:id="inputText" layoutX="135.0" layoutY="36.0" prefHeight="200.0" promptText="Text" snapToPixel="false" />
+                        <Button layoutX="409.0" layoutY="312.0" mnemonicParsing="false" onAction="#clickDecryption" snapToPixel="false" text="Decryption" />
+                    </children>
+                </Pane>
+         </content>
+      </ScrollPane>
+    </children>
+   <columnConstraints>
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+   </rowConstraints>
+</GridPane>
