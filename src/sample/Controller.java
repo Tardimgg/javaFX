@@ -1,13 +1,8 @@
 package sample;
 
 import javafx.fxml.FXML;
-import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.GridPane;
-
-import java.security.PrivateKey;
-import java.util.Base64;
 
 public class Controller {
 
@@ -27,10 +22,8 @@ public class Controller {
             String h = Main.encryption(inputText.getText(), key.getText());
             outputText.setText(h);
         }catch (Exception e){
-            //outputText.setText("Write text");
-            outputText.setText(e.getMessage());
+            outputText.setText(getText());
         }
-
     }
 
     @FXML
@@ -38,8 +31,21 @@ public class Controller {
         try {
             outputText.setText(Main.decryption(inputText.getText(), key.getText()));
         }catch (Exception e){
-            outputText.setText("Write text");
+            outputText.setText(getText());
         }
+    }
 
+    private String getText(){
+        if (inputText.getText().strip().equals("")){
+            if (key.getText().strip().equals("")){
+                return "Write text and key";
+            }else{
+                return "Write text";
+            }
+        }
+        if (key.getText().strip().equals("")){
+            return "Write text";
+        }
+        return "Key error";
     }
 }
