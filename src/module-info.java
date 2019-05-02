@@ -1,8 +1,8 @@
 module javaFX {
     requires  javafx.fxml;
     requires javafx.controls;
-    requires java.base;
     requires org.apache.commons.codec;
+    requires java.desktop;
 
     opens sample;
 

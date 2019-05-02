@@ -11,41 +11,70 @@ public class Controller {
     TextArea inputText;
 
     @FXML
-    TextArea outputText;
+    protected TextArea outputText;
 
     @FXML
     TextField key;
 
+    private static Thread stream;
+
     @FXML
-    public void clickEncryption(){
-        try {
-            String h = Main.encryption(inputText.getText(), key.getText());
-            outputText.setText(h);
-        }catch (Exception e){
-            outputText.setText(getText());
+    public void clickEncryption() {
+        if (stream != null && stream.isAlive()) {
+            outputText.setText("Wait");
+            return;
         }
+        stream = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    outputText.clear();
+                    outputText.setText(Main.encryption(inputText.getText(), key.getText()));
+                } catch (Exception e) {
+                    outputText.clear();
+                    outputText.setText(getText(e));
+                }
+            }
+        });
+        stream.start();
     }
 
     @FXML
-    public void clickDecryption(){
-        try {
-            outputText.setText(Main.decryption(inputText.getText(), key.getText()));
-        }catch (Exception e){
-            outputText.setText(getText());
+    public void clickDecryption() {
+        if (stream != null && stream.isAlive()) {
+            outputText.setText("Wait");
+            return;
         }
+        stream = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    outputText.clear();
+                    outputText.setText(Main.decryption(inputText.getText(), key.getText()));
+                } catch (Exception e) {
+                    outputText.clear();
+                    outputText.setText(getText(e));
+                }
+            }
+        });
+        stream.start();
     }
 
-    private String getText(){
-        if (inputText.getText().strip().equals("")){
-            if (key.getText().strip().equals("")){
+    private String getText(Exception e) {
+        if (inputText.getText().length() == 0) {
+            if (key.getText().length() == 0) {
                 return "Write text and key";
-            }else{
+            } else {
                 return "Write text";
             }
         }
-        if (key.getText().strip().equals("")){
-            return "Write text";
+        if (key.getText().length() == 0) {
+            return "Write key";
         }
-        return "Key error";
+        if (e.getMessage().substring(0, 16).equals("For input string")) {
+            return "Text error";
+        }
+        return "Key error\n" + e.getMessage();
     }
 }
+

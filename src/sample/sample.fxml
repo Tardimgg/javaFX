@@ -12,11 +12,11 @@
 
 <GridPane alignment="CENTER" snapToPixel="false" styleClass="background" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
     <children>
-      <ScrollPane styleClass="background">
-         <content>
-                <Pane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="600.0" prefWidth="800.0" snapToPixel="false" styleClass="background">
+        <ScrollPane styleClass="background">
+            <content>
+                <Pane  styleClass="background" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="600" prefWidth="800.0" snapToPixel="false" >
                     <children>
-                        <TextField fx:id="key" layoutX="284.0" layoutY="266.0" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" snapToPixel="false" promptText="16 or 24 or 32 bytes"/>
+                        <TextField fx:id="key" layoutX="284.0" layoutY="266.0" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" promptText="16 or 24 or 32 bytes" snapToPixel="false" />
                         <TextArea fx:id="outputText" editable="false" layoutX="126.0" layoutY="367.0" snapToPixel="false" />
                         <Label layoutX="221.0" layoutY="271.0" snapToPixel="false" text="Key" />
                         <Button layoutX="240.0" layoutY="312.0" mnemonicParsing="false" onAction="#clickEncryption" snapToPixel="false" text="Encryption" />
@@ -24,13 +24,13 @@
                         <Button layoutX="409.0" layoutY="312.0" mnemonicParsing="false" onAction="#clickDecryption" snapToPixel="false" text="Decryption" />
                     </children>
                 </Pane>
-         </content>
-      </ScrollPane>
+            </content>
+        </ScrollPane>
     </children>
-   <columnConstraints>
-      <ColumnConstraints />
-   </columnConstraints>
-   <rowConstraints>
-      <RowConstraints />
-   </rowConstraints>
+    <columnConstraints>
+        <ColumnConstraints />
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints />
+    </rowConstraints>
 </GridPane>
