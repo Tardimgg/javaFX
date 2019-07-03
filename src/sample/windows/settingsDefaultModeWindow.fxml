@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="TOP_CENTER" prefHeight="300.0" prefWidth="400.0" styleClass="background"
+      stylesheets="@../../css/style.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="sample.settingsDefaultController">
+    <children>
+        <Label text="Key for default mode">
+            <VBox.margin>
+                <Insets bottom="15.0" top="15.0"/>
+            </VBox.margin>
+        </Label>
+        <TextField fx:id="keyDefault" onAction="#saveExit" promptText="16 or 24 or 32 bytes" focusTraversable="false">
+            <VBox.margin>
+                <Insets bottom="10.0" left="50.0" right="50.0" top="5.0"/>
+            </VBox.margin>
+        </TextField>
+        <CheckBox fx:id="autoClickBox" mnemonicParsing="false" onKeyPressed="#saveExit" text="automatic activation"
+                  textFill="#c6c6c6">
+            <VBox.margin>
+                <Insets bottom="30.0" top="20.0"/>
+            </VBox.margin>
+        </CheckBox>
+        <Label alignment="CENTER" contentDisplay="CENTER" onDragEntered="#saveExit" text="Press enter for save"
+               textAlignment="CENTER">
+            <VBox.margin>
+                <Insets/>
+            </VBox.margin>
+        </Label>
+    </children>
+</VBox>
